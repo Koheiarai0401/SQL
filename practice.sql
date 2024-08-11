@@ -44,11 +44,11 @@ SELECT name FROM countries WHERE name LIKE 'an%';
 
 -- 問12
 -- 全国の中から独立記念日が1990年より前または人口が10万人より多い国を全て抽出してください。
-SELECT name FROM countries WHERE 1990 >= indep_year OR population >= 100000;
+SELECT name FROM countries WHERE 1990 > indep_year OR population > 100000;
 
 -- 問13
 -- コードがDZAもしくはALBかつ独立記念日が1990年より前の国を全て抽出してください。
-SELECT name FROM countries WHERE indep_year >= 1990 OR code in ('DZA', 'ALB');
+SELECT name FROM countries WHERE indep_year < 1990 OR code in ('DZA', 'ALB');
 
 -- 問14
 -- 全ての地方をグループ化せずに表示してください。
@@ -57,8 +57,7 @@ SELECT region FROM countries;
 -- 問15
 -- 国名と人口を以下のように表示させてください。シングルクォートに注意してください。
 -- 「Arubaの人口は103000人です」
- name'の人口は'population'人です';
--- 分からない箇所
+SELECT CONCAT('Aruba', 'の人口は', 103000, '人です') ;
 
 -- 問16
 -- 平均寿命が短い順に国名を表示させてください。ただしNULLは表示させないでください。
@@ -144,7 +143,6 @@ SELECT name
 FROM countries
 GROUP BY countries
 WHERE MAX(age)>=50 AND 30>=MIN(age);
---分からない--
 
 -- 問31
 -- 1991年生まれと、1981年生まれの有名人が何人いるか調べてください。ただし、日付関数は使用せず、UNION句を使用してください。
