@@ -57,8 +57,9 @@ SELECT region FROM countries;
 -- 問15
 -- 国名と人口を以下のように表示させてください。シングルクォートに注意してください。
 -- 「Arubaの人口は103000人です」
-SELECT CONCAT('Aruba', 'の人口は', 103000, '人です') ;
-
+SELECT CONCAT(name, 'の人口は', population, '人です')
+FROM countries
+WHERE code = 'ABW';
 -- 問16
 -- 平均寿命が短い順に国名を表示させてください。ただしNULLは表示させないでください。
 SELECT name FROM countries ORDER BY life_expectancy ASC;
